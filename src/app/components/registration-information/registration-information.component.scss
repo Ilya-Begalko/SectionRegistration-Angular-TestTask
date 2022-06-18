@@ -1,0 +1,60 @@
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200px;
+
+  .dx-fieldset-header {
+    margin-left: 50%;
+    padding: 10px;
+    font-size: 30px;
+  }
+}
+
+.description{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+}
+
+::ng-deep #summary {
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+::ng-deep #button {
+  display: block;
+}
+
+
+.hello-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  margin: 200px;
+
+  img {
+    -webkit-box-shadow:
+      inset 0 0 1px rgba(0, 0, 0, .8),
+      inset 0 2px 0 rgba(255, 255, 255, .5),
+      inset 0 -1px 0 rgba(0, 0, 0, .4);
+    -moz-box-shadow:
+      inset 0 0 1px rgba(0, 0, 0, .8),
+      inset 0 2px 0 rgba(255, 255, 255, .5),
+      inset 0 -1px 0 rgba(0, 0, 0, .4);
+    box-shadow:
+      inset 0 0 1px rgba(0, 0, 0, .8),
+      inset 0 2px 0 rgba(255, 255, 255, .5),
+      inset 0 -1px 0 rgba(0, 0, 0, .4);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+  }
+}

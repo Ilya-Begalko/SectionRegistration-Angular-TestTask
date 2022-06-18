@@ -1,0 +1,81 @@
+<form action="your-action" (submit)="onFormSubmit($event, email)" *ngIf="visAll">
+    <div class="dx-fieldset">
+        <div class="dx-fieldset-header">Регистрация</div>
+        <div class="dx-field">
+            <div class="dx-field-label">Email</div>
+            <div class="dx-field-value">
+                <dx-text-box [(value)]='email'>
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Введите Email"></dxi-validation-rule>
+                        <dxi-validation-rule type="email" message="Неправильно введен Email"></dxi-validation-rule>
+                        <dxi-validation-rule type="async" message="Email готов к регистрации"
+                            [validationCallback]="asyncValidation"></dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Пароль</div>
+            <div class="dx-field-value">
+                <dx-text-box mode="password" [maxLength]="20" [(value)]="password">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Введите пароль"></dxi-validation-rule>
+                        <dxi-validation-rule type="async" message="Пароль не соответствует критериям"
+                            [validationCallback]="asyncValidationPassword"></dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+        </div>
+        <div class="dx-field ">
+            <div class="dx-field-value description">
+                Пароль обязан содержать латинские буквы малого и большого регистра и цифры (a-z,A-Z,0-9) и быть длиной
+                от 6 до 20 символов
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Подтвердите пароль</div>
+            <div class="dx-field-value">
+                <dx-text-box mode="password">
+                    <dx-validator>
+                        <dxi-validation-rule type="required" message="Введите подтвержденный пароль">
+                        </dxi-validation-rule>
+                        <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
+                            message="Пароль и подтвержденный пароль не совпадают"></dxi-validation-rule>
+                    </dx-validator>
+                </dx-text-box>
+            </div>
+        </div>
+    </div>
+
+    <div class="dx-fieldset btn">
+        <dx-validation-summary id="summary"></dx-validation-summary>
+        <dx-button id="button" text="Зарегистрироваться" type="success" [useSubmitBehavior]="true">
+        </dx-button>
+    </div>
+
+</form>
+
+
+<form *ngIf="textAreaVis">
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">Введите код</div>
+            <div class="dx-field-value">
+                <dx-text-box [(value)]="code"></dx-text-box>
+            </div>
+        </div>
+    </div>
+    <div class="dx-fieldset">
+        <dx-button id="button" text="Подтвердите код" type="success" (onClick)="doneCode()"></dx-button>
+    </div>
+</form>
+
+
+<div class="dx-fieldset  hello-container" *ngIf="visHello">
+    <div class="dx-fieldset-header">
+        Привет, {{name}}!
+    </div>
+    <div class="dx-field">
+        <img src={{imgSrc}}>
+    </div>
+</div>
