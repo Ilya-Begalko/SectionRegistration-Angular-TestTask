@@ -45,29 +45,31 @@ export class RegistrationInfoComponent {
   name = '';
   imgSrc = '';
 
-
   constructor(private http: HttpClient) {
     this.getPromise()
   }
 
+  // Проверка на совпадение паролей
   passwordComparison = () => this.password;
 
   checkComparison() {
     return true;
   }
 
+  // Проверка email
   asyncValidation(params: { value: any; }) {
     return sendRequest(params.value);
   }
 
+  //проверка пароля на требования
   asyncValidationPassword(params: { value: any; }) {
-    console.log(params.value)
     return sendPasswordRequest(params.value);
   }
 
-  onFormSubmit(e: { preventDefault: () => void; }, email: string) {
+  // подтверждение регистрации
+  onFormSubmit(e: { preventDefault: () => void; }) {
     notify({
-      message: 'На почту ' + email + ' был выслан код',
+      message: 'На почту ' + this.email + ' был выслан код',
       position: {
         my: 'center top',
         at: 'center top',
@@ -80,6 +82,7 @@ export class RegistrationInfoComponent {
     this.textAreaVis = true;
   }
 
+  // подтверждение кода
   doneCode() {
     if (this.code != '') {
       this.textAreaVis = false;
@@ -88,12 +91,12 @@ export class RegistrationInfoComponent {
     }
   }
 
+  // получить инфу с API
   async getPromise() {
     let data: any = await this.http.get('https://randomuser.me/api').toPromise()
     data = data.results[0]
     this.name = data.name.title + '. ' + data.name.first + ' ' + data.name.last
     this.imgSrc = data.picture.large
-    console.log(data)
   }
 
 }
