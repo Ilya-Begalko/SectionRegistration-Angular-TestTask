@@ -8,7 +8,6 @@ import { RegistrationInfoComponent } from './components/registration-information
 
 import { DxButtonModule, DxCheckBoxModule, DxDateBoxModule, DxSelectBoxModule, DxTextBoxModule, DxValidationSummaryModule, DxValidatorModule } from 'devextreme-angular';
 
-import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -26,8 +25,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     DxButtonModule,
     DxValidatorModule,
     DxValidationSummaryModule,
-    HttpClientModule,
-    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
